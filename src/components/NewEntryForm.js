@@ -1,27 +1,32 @@
 import React from 'react'
-import { Button, Form, Icon, Grid, Container, Header, Statistic, Segment } from 'semantic-ui-react'
+import { Checkbox, Button, Form, Icon, Grid, Container, Header, Statistic, Segment } from 'semantic-ui-react'
 import ButtonSaveOrCancel from './ButtonSaveOrCancel'
+import EntryForm from './EntryForm'
+function NewEntryForm({
+  addEntry,
+  description,
+  value,
+  isExpense,
+  setdescription,
+  setvalue,
+  setisExpense
+}) {
 
-function NewEntryForm() {
-    return (
-        <Form unstackable>
-        <Form.Group>
-          <Form.Input
-            icon='tags'
-            width={12}
-            label='Description'
-            placeholder='New shiny thing' />
-          <Form.Input
-            width={4}
-            label='Value'
-            placeholder='100.00'
-            icon='dollar'
-            iconPosition='left'
-          />
-        </Form.Group>
-        <ButtonSaveOrCancel/>
-      </Form>
-    )
+  return (
+    <Form unstackable>
+      <EntryForm
+        description={description}
+        value={value}
+        isExpense={isExpense}
+        setdescription={setdescription}
+        setvalue={setvalue}
+        setisExpense={setisExpense}
+      />
+      <ButtonSaveOrCancel
+        addEntry={addEntry}
+      />
+    </Form>
+  )
 }
 
 export default NewEntryForm
